@@ -8,12 +8,7 @@
 {
 
 pid_t pid = fork();
-int i, k = 0;
-
-while (words[k])
-{
-k++;
-}
+int i;
 if (pid == -1)
 {
 perror("Fork filed error: ");
@@ -21,12 +16,7 @@ exit(EXIT_FAILURE);
 }
 else if (pid == 0)
 {
-if (k > 1)
-{
-fprintf(stderr, "./hsh: 1: ./hsh: Usage: ./hsh [command]\n");
-exit(EXIT_FAILURE);
-}
-else if (execve(words[0], words, envp) == -1)
+if (execve(words[0], words, envp) == -1)
 {
 fprintf(stderr, "./hsh: 1: %s: command not found\n", words[0]);
 exit(EXIT_FAILURE);
