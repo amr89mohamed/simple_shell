@@ -6,8 +6,10 @@
  * to create a process to excute it
  */void excut(char **words)
 {
+char *envp[2];
 pid_t pid = fork();
 int i, k = 0;
+envp[2] = NULL; 
 while (words[k])
 {
 k++;
@@ -24,7 +26,7 @@ if (k > 1)
 printf("./shell: No such file or directory\n");
 exit(EXIT_FAILURE);
 }
-else if (execve(words[0], words, NULL) == -1)
+else if (execve(words[0], words, envp) == -1)
 {
 perror("./shell");
 exit(EXIT_FAILURE);

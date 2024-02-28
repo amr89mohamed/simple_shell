@@ -13,7 +13,6 @@ if (i == -1)
 if (feof(stdin))
 {
 free(buff);
-perror("EOF reached");
 exit(0);
 }
 else
