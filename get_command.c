@@ -5,8 +5,7 @@
  * the getline funcation will get the command from the stdin then
  * store it to the @buf
  * then return @buff to the main fun
- */
-char *get_command(char *buff, size_t n)
+ */char *get_command(char *buff, size_t n)
 {
 int i = getline(&buff, &n, stdin);
 if (i == -1)
