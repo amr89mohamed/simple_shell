@@ -23,12 +23,12 @@ else if (pid == 0)
 {
 if (k > 1)
 {
-printf("Usage: %s [command]\n", words[0]);
+fprintf(stderr, "./hsh: 1: ./hsh: Usage: ./hsh [command]\n");
 exit(EXIT_FAILURE);
 }
 else if (execve(words[0], words, envp) == -1)
 {
-perror("./hsh");
+fprintf(stderr, "./hsh: 1: %s: not found\n", words[0]);
 exit(EXIT_FAILURE);
 }
 }
