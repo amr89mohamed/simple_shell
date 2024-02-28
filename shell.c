@@ -17,6 +17,11 @@ while (1)
 write(1, "#cisfun$ ", 9);
 fflush(stdout);
 command = get_command(buff, size);
+if (strcmp(command, "\n") == 0)
+{
+free(command);
+continue;
+}
 words = argv(command);
 if (strcmp(words[0], "exit") == 0)
 {
@@ -33,4 +38,5 @@ excut(words, envp);
 }
 return (0);
 }
+
 
