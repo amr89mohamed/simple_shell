@@ -1,4 +1,4 @@
-/#include "shell.h"
+#include "shell.h"
 /*
  * @argv fun
  * recive @buff and pass it

@@ -12,7 +12,7 @@ size_t size = 0;
 char **words;
 while (1)
 {
-printf("#cisfun$ ");
+write(1, "#cisfun$ ", 9);
 command = get_command(buff, size);
 words = argv(command);
 excut(words);
