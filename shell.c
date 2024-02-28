@@ -10,10 +10,12 @@
 char *buff = NULL, *command;
 size_t size = 0;
 char **words;
+char *envp[] = { NULL };
 if (isatty(STDIN_FILENO))
 while (1)
 {
-write(1, "$ ", 2);
+write(1, "#cisfun$ ", 9);
+fflush(stdout);
 command = get_command(buff, size);
 words = argv(command);
 if (strcmp(words[0], "exit") == 0)
@@ -21,13 +23,13 @@ if (strcmp(words[0], "exit") == 0)
 free(command);
 free(words);
 break;            }
-excut(words);
+excut(words, envp);
 }
 else
 {
 command = get_command(buff, size);
 words = argv(command);
-excut(words);
+excut(words, envp);
 }
 return (0);
 }

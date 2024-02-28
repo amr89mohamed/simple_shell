@@ -12,7 +12,7 @@
 #include <sys/stat.h>
 #define MAX_COMMAND_LENGTH 100
 char **argv(char *buff);
-void excut(char **words);
+void excut(char **words, char **envp);
 char *get_command(char *buff, size_t n);
 
 

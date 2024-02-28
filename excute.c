@@ -4,9 +4,9 @@
  * @words from the main, then pass it
  * to @execve funcation
  * to create a process to excute it
- */void excut(char **words)
+ */void excut(char **words,char **envp)
 {
-char *envp[] = { NULL };
+
 pid_t pid = fork();
 int i, k = 0;
 
@@ -28,7 +28,7 @@ exit(EXIT_FAILURE);
 }
 else if (execve(words[0], words, envp) == -1)
 {
-fprintf(stderr, "./hsh: 1: %s: not found\n", words[0]);
+fprintf(stderr, "./hsh: 1: %s: command not found\n", words[0]);
 exit(EXIT_FAILURE);
 }
 }
