@@ -1,2 +1,1 @@
-# simple_shell
-The simple shell for ALX
+This the readme .md by amr
