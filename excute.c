@@ -23,12 +23,12 @@ else if (pid == 0)
 {
 if (k > 1)
 {
-printf("./shell: No such file or directory\n");
+printf("./shell %s: No such file or directory\n", words[0]);
 exit(EXIT_FAILURE);
 }
 else if (execve(words[0], words, envp) == -1)
 {
-perror("./shell");
+perror(words[0]);
 exit(EXIT_FAILURE);
 }
 }
