@@ -4,7 +4,7 @@
  * @words from the main, then pass it
  * to @execve funcation
  * to create a process to excute it
- */void excut(char **words,char **envp)
+ */void excut(char **words, char **envp)
 {
 
 pid_t pid = fork();
