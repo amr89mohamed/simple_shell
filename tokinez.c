@@ -9,10 +9,15 @@
  * @words will be returned to the main funcation
  */char **argv(char *buff)
 {
-char **words = malloc(sizeof(char *));
 char *delim = " \n";
 int i = 0;
 char *token;
+char **words = malloc(sizeof(char *));
+if (words == NULL)
+{
+perror("Error allocating memory for words");
+exit(EXIT_FAILURE);
+}
 token = strtok(buff, delim);
 while (token != NULL)
 {
