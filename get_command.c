@@ -23,5 +23,6 @@ exit(1);
 }
 }
 else
+buff[n - 1] = '\0';
 return (buff);
 }
