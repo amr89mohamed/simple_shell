@@ -9,7 +9,7 @@
 char *envp[2];
 pid_t pid = fork();
 int i, k = 0;
-envp[2] = NULL; 
+envp[2] = NULL;
 while (words[k])
 {
 k++;
