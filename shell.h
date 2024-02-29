@@ -18,6 +18,6 @@ void handle_int(int end);
 void handle_quit(int end);
 void handle_stp(int end);
 void the_prompt(void);
-
+char *find_executable(char *command, char *path);
 
 #endif

@@ -25,6 +25,10 @@ exit(EXIT_FAILURE);
 else
 {
 wait(&i);
-free(words);
 }
+for (i = 0; words[i]; i++)
+{
+free(words[i]);
+}
+free(words);
 }
