@@ -39,4 +39,10 @@ list_path *add_node_end(list_path **head, char *str);
 list_path *linkpath(char *path);
 char *_which(char *filename, list_path *head);
 void free_list(list_path *head);
+void _unsetenv(char **arv);
+void _setenv(char **arv);
+void env(char **arv __attribute__ ((unused)));
+int _atoi(char *s);
+void exitt(char **arv);
+void _puts(char *str);
 #endif

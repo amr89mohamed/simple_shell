@@ -33,7 +33,27 @@ free(command);
 free(words);
 break;
 }
+words = argv(command);
+if (strcmp(words[0], "exit") == 0)
+{
+exitt(words);
+}
+else if (strcmp(words[0], "env") == 0)
+{
+env(words);
+}
+else if (strcmp(words[0], "_setenv") == 0)
+{
+_setenv(words);
+}
+else if (strcmp(words[0], "_unsetenv") == 0)
+{
+_unsetenv(words);
+}
+else
+{
 excut(words, envp);
+}
 free(command);
 free(words);
 }
@@ -46,7 +66,7 @@ excut(words, envp);
 free(command);
 free(words);
 }
-path = _getenv("PATH");    
+path = _getenv("PATH");
 path_list = linkpath(path);
 filename = "file";
 full_path = _which(filename, path_list);
