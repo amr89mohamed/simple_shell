@@ -11,10 +11,14 @@ char *buff = NULL, *command;
 size_t size = 0;
 char **words;
 char *envp[] = { NULL };
-char *executable_path;
+char *path;
+char *filename;
+char *full_path;
+list_path *path_list;
 if (isatty(STDIN_FILENO))
 {
-while (1) {
+while (1)
+{
 the_prompt();
 command = get_command(buff, size);
 if (strcmp(command, "\n") == 0)
@@ -29,16 +33,7 @@ free(command);
 free(words);
 break;
 }
-executable_path = find_executable(words[0], getenv("PATH"));
-if (executable_path == NULL)
-{
-fprintf(stderr, "%s: command not found\n", words[0]);
-free(command);
-free(words);
-continue;
-}
 excut(words, envp);
-free(executable_path);
 free(command);
 free(words);
 }
@@ -51,6 +46,19 @@ excut(words, envp);
 free(command);
 free(words);
 }
-return 0;
+path = _getenv("PATH");    
+path_list = linkpath(path);
+filename = "file";
+full_path = _which(filename, path_list);
+if (full_path != NULL)
+{
+printf("Found executable at: %s\n", full_path);
+}
+else
+{
+printf("Executable not found in PATH\n");
+}
+free_list(path_list);
+return (0);
 }
 
