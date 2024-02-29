@@ -14,8 +14,7 @@ char *envp[] = { NULL };
 if (isatty(STDIN_FILENO))
 while (1)
 {
-write(1, "#cisfun$ ", 9);
-fflush(stdout);
+the_prompt();
 command = get_command(buff, size);
 if (strcmp(command, "\n") == 0)
 {
