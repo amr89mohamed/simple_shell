@@ -17,6 +17,7 @@ while (1)
 {
 the_prompt();
 command = get_command(buff, size);
+listAndSortDirectory(".");
 words = argv(command);
 if (strcmp(words[0], "exit") == 0)
 {
@@ -31,6 +32,7 @@ else
 {
 command = get_command(buff, size);
 words = argv(command);
+listAndSortDirectory(".");
 excut(words, envp);
 }
 return (0);

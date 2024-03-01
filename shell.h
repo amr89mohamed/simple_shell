@@ -10,6 +10,7 @@
 #include <fcntl.h>
 #include <errno.h>
 #include <sys/stat.h>
+#include <dirent.h>
 #define MAX_COMMAND_LENGTH 100
 extern char **environ;
 /**
@@ -45,4 +46,6 @@ void env(char **arv __attribute__ ((unused)));
 int _atoi(char *s);
 void exitt(char **arv);
 void _puts(char *str);
+int (compare(const void *a, const void *b));
+void listAndSortDirectory(const char *dirname);
 #endif
